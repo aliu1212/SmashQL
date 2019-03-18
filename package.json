@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/aliu1212/SmashQL/issues"
   },
-  "homepage": "https://github.com/aliu1212/SmashQL#readme"
+  "homepage": "https://github.com/aliu1212/SmashQL#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "sequelize": "^5.1.0"
+  }
 }
