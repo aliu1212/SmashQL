@@ -6,6 +6,7 @@ const Character = sequelize.define('character', {
   name: { type: Sequelize.STRING, allowNull: false },
   weight: { type: Sequelize.INTEGER, allowNull: false },
   pic_url: { type: Sequelize.STRING, allowNull: false },
+  big_url: { type: Sequelize.STRING, allowNull: false },
   zero_rank: { type: Sequelize.STRING, allowNull: false },
   esam_rank: { type: Sequelize.STRING, allowNull: false },
 },

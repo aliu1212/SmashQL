@@ -19,6 +19,7 @@ const CharacterType = new GraphQLObjectType({
     name: { type: GraphQLString },
     weight: { type: GraphQLInt },
     pic_url: { type: GraphQLString },
+    big_url: { type: GraphQLString },
     zero_rank: { type: GraphQLString },
     esam_rank: { type: GraphQLString },
   })
