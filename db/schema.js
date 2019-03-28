@@ -32,12 +32,13 @@ const ProSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    main: {
-      type: CharacterType,
-      resolve(parent, args){
-        //return Character.find(parent.main);
-      }
-    }
+    // main: {
+    //   type: CharacterType,
+    //   resolve(parent, args){
+    //     //return Character.find(parent.main);
+    //   }
+    // },
+    main: [CharacterType],
   })
 });
 
@@ -48,12 +49,13 @@ const HRSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    main: {
-      type: CharacterType,
-      resolve(parent, args){
-        //return Character.find(parent.main);
-      }
-    }
+    // main: {
+    //   type: CharacterType,
+    //   resolve(parent, args){
+    //     //return Character.find(parent.main);
+    //   }
+    // },
+    main: [CharacterType],
   })
 });
 
