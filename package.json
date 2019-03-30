@@ -4,7 +4,8 @@
   "description": "Full stack Smash Bros display project using GraphQL",
   "main": "index.js",
   "scripts": {
-    "test": "jshint server/index.js"
+    "test": "jshint server/index.js",
+    "seed": "node db/seed/smashSeed2.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "express-graphql": "^0.7.1",
     "graphql": "^14.1.1",
     "jshint": "^2.10.2",
+    "pg": "^7.9.0",
     "sequelize": "^5.1.0"
   }
 }

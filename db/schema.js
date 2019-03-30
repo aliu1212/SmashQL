@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { Character, Special, HRSmasher, ProSmasher } = require('./models');
+const { Character, HRSmasher, ProSmasher } = require('./models');
 
 //This file replaces what would be 'dbHelpers'
 
