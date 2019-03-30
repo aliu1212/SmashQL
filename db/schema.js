@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { Character, Special, HRSmasher, ProSmasher } = require('./models');
+const { Character, HRSmasher, ProSmasher } = require('./models');
 
 //This file replaces what would be 'dbHelpers'
 
@@ -19,6 +19,7 @@ const CharacterType = new GraphQLObjectType({
     name: { type: GraphQLString },
     weight: { type: GraphQLInt },
     pic_url: { type: GraphQLString },
+    big_url: { type: GraphQLString },
     zero_rank: { type: GraphQLString },
     esam_rank: { type: GraphQLString },
   })
@@ -31,12 +32,13 @@ const ProSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    main: {
-      type: CharacterType,
-      resolve(parent, args){
-        //return Character.find(parent.main);
-      }
-    }
+    // main: {
+    //   type: CharacterType,
+    //   resolve(parent, args){
+    //     //return Character.find(parent.main);
+    //   }
+    // },
+    main: [CharacterType],
   })
 });
 
@@ -47,12 +49,13 @@ const HRSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    main: {
-      type: CharacterType,
-      resolve(parent, args){
-        //return Character.find(parent.main);
-      }
-    }
+    // main: {
+    //   type: CharacterType,
+    //   resolve(parent, args){
+    //     //return Character.find(parent.main);
+    //   }
+    // },
+    main: [CharacterType],
   })
 });
 
