@@ -37,6 +37,15 @@ const HRSmasher = sequelize.define('hrsmasher', {
   timestamps: false,
 });
 
+const Comment = sequelize.define('comment', {
+  id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
+  author: { type: Sequelize.STRING, allowNull: false },
+  text: { type: Sequelize.TEXT, allowNull: false },
+},
+{
+  timestamps: false,
+});
+
 // const Special = sequelize.define('special', {
 //   id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
 //   name: { type: Sequelize.STRING, allowNull: false },
@@ -52,4 +61,4 @@ sequelize.sync({ force: false })
   .then(() => console.log('synced with database'))
   .catch(err => console.error('error syncing database', err));
 
-module.exports = { Character, HRSmasher, ProSmasher };
+module.exports = { Character, HRSmasher, ProSmasher, Comment };

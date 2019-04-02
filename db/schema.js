@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { Character, HRSmasher, ProSmasher } = require('./models');
+const { Character, HRSmasher, ProSmasher, Comment } = require('./models');
 
 //This file replaces what would be 'dbHelpers'
 
@@ -32,13 +32,13 @@ const ProSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    // main: {
-    //   type: CharacterType,
-    //   resolve(parent, args){
-    //     //return Character.find(parent.main);
-    //   }
-    // },
-    main: [CharacterType],
+    main: {
+      type: CharacterType,
+      resolve(parent, args){
+        //return Character.find(parent.main);
+      }
+    },
+    // main: { CharacterType },
   })
 });
 
@@ -49,13 +49,22 @@ const HRSmasherType = new GraphQLObjectType({
     name: { type: GraphQLString },
     pic_url: { type: GraphQLString },
     description: { type: GraphQLString },
-    // main: {
-    //   type: CharacterType,
-    //   resolve(parent, args){
-    //     //return Character.find(parent.main);
-    //   }
-    // },
-    main: [CharacterType],
+    main: {
+      type: CharacterType,
+      resolve(parent, args){
+        //return Character.find(parent.main);
+      }
+    },
+    // main: { CharacterType },
+  })
+});
+
+const CommentType = new GraphQLObjectType({
+  name: 'comment',
+  fields: () => ({
+    id: { type: GraphQLID },
+    author: { type: GraphQLString },
+    text: { type: GraphQLString },
   })
 });
 
@@ -66,48 +75,78 @@ const RootQuery = new GraphQLObjectType({
       type: CharacterType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args){
-          //return \
+        //return \
       }
     },
     prosmasher: {
       type: ProSmasherType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args){
-          //return 
+        //return 
       }
     },
     hrsmasher: {
       type: HRSmasherType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args){
-          //return 
+        //return 
       }
     },
     characters: {
       type: new GraphQLList(CharacterType),
       resolve(parent, args){
-          //return ;
+        //return ;
       }
     },
     prosmashers: {
-        type: new GraphQLList(ProSmasherType),
-        resolve(parent, args){
-            //return ;
-        }
+      type: new GraphQLList(ProSmasherType),
+      resolve(parent, args){
+        //return ;
+      }
     },
     hrsmashers: {
       type: new GraphQLList(HRSmasherType),
       resolve(parent, args){
-          //return ;
+        //return ;
       }
     },
+    comment: {
+      type: new GraphQLList(CommentType),
+      resolve(parent, args) {
+        //
+      }
+    }
   }
 });
 
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    
+    addComment: {
+      type: CommentType,
+      args: {
+        author: { type: GraphQLString },
+        text: { type: GraphQLString }
+      },
+      resolve(parent, args){
+        Comment.create({
+          author: args.author,
+          text: args.text
+        })
+        .then((item) => {
+          return {
+            message: 'comment created',
+            item: item
+          }
+        })
+        .catch((err) => {
+          return {
+            message: 'error occured while creating comment',
+            item: err
+          }
+        })
+      }
+    },
   }
 });
 
