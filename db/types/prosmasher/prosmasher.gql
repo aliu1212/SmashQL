@@ -1,0 +1,16 @@
+type ProSmasher {
+  id: ID!
+  name: String!
+  pic_url: String!
+  description: String!
+  main: [String!]!
+}
+
+extend type Query {
+  prosmashers: [ProSmasher!]!
+  prosmasher(id: ID!): ProSmasher!
+}
+
+extend type Mutation {
+  #
+}
