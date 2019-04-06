@@ -1,0 +1,16 @@
+type HRSmasher {
+  id: ID!
+  name: String!
+  pic_url: String!
+  description: String!
+  main: [String!]!
+}
+
+extend type Query {
+  hrsmashers: [HRSmasher!]!
+  hrsmasher(id: ID!): HRSmasher!
+}
+
+extend type Mutation {
+  #
+}
