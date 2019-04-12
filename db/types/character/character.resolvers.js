@@ -1,4 +1,4 @@
-import Character from './character.model'
+const Character = require('./character.model')
 
 const character = (_, args) => {
   Character.findOne({ where: { id: args.id }})
@@ -14,12 +14,17 @@ const characters = () => {
     })
 }
 
-export default {
+module.exports = {
   Query: {
     characters,
     character
   },
   // Mutation: {
   //   newComment,
-  // }
+  // },
+  Character: {
+    __resolveType(character) {
+      return character;
+    },
+  }
 }

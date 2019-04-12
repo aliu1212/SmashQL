@@ -1,4 +1,4 @@
-import ProSmasher from './prosmasher.model';
+const ProSmasher = require('./prosmasher.model');
 
 const prosmasher = (_, args) => {
   ProSmasher.findOne({ where: { id: args.id }})
@@ -14,7 +14,7 @@ const prosmashers = () => {
     })
 }
 
-export default {
+module.exports = {
   Query: {
     prosmashers,
     prosmasher,

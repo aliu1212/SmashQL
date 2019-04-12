@@ -15,10 +15,13 @@ const sequelize = new Sequelize({
   operatorsAliases: false
 });
 
-sequelize.authenticate().then(() => {
-  console.log("Successfully connected to database bruh");
-}).catch((err) => {
-  console.log(err);
-});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Successfully connected to database bruh");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-module.exports = { sequelize };
+module.exports = sequelize;

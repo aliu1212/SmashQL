@@ -1,4 +1,4 @@
-import HRSmasher from './hrsmasher.model'
+const HRSmasher = require('./hrsmasher.model')
 
 const hrsmasher = (_, args) => {
   HRSmasher.findOne({ where: { id: args.id }})
@@ -14,7 +14,7 @@ const hrsmashers = () => {
     })
 }
 
-export default {
+module.exports = {
   Query: {
     hrsmashers,
     hrsmasher
