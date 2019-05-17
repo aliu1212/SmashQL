@@ -19,11 +19,11 @@ input NewCharInput {
   leffen_rank: String
 }
 
-extend type Query {
+type Query {
   characters: [Character!]!
   character(id: ID!): Character!
 }
 
-extend type Mutation {
+type Mutation {
   newchar(input: NewCharInput!): Character!
 }

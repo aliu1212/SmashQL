@@ -30,7 +30,6 @@
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "fs": "0.0.1-security",
-    "graphiql": "^0.13.0",
     "graphql": "^14.1.1",
     "ignore-loader": "^0.1.2",
     "jshint": "^2.10.2",
@@ -40,7 +39,7 @@
     "pg": "^7.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "sequelize": "^5.1.0",
+    "sequelize": "^5.8.6",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
