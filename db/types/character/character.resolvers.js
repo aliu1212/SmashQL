@@ -14,14 +14,18 @@ const characters = () => {
     })
 }
 
+const newchar = (parent, args) => {
+  return Character.create({ ...args.input })
+}
+
 module.exports = {
   Query: {
     characters,
     character
   },
-  // Mutation: {
-  //   newComment,
-  // },
+  Mutation: {
+    newchar,
+  },
   Character: {
     __resolveType(character) {
       return character;
