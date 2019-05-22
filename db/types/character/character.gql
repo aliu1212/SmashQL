@@ -11,7 +11,7 @@ type Character {
 
 input NewCharInput {
   name: String!
-  weight: Int!
+  weight: Int
   pic_url: String
   big_url: String
   zero_rank: String

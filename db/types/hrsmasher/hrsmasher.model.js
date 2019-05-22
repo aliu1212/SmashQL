@@ -12,4 +12,4 @@ const HRSmasher = sequelize.define('hrsmasher', {
   timestamps: false,
 });
 
-module.exports = { HRSmasher };
+module.exports = HRSmasher;

@@ -1,14 +1,14 @@
 const Character = require('./character.model')
 
-const character = (_, args) => {
-  Character.findOne({ where: { id: args.id }})
+const character = (parent, args) => {
+  return Character.findOne({ where: { id: args.id }})
     .then(char => {
-      return char;
+      return char.dataValues;
     })
 }
 
 const characters = () => {
-  Character.findAll()
+  return Character.findAll()
     .then(chars => {
       return chars;
     })

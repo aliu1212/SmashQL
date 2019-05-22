@@ -1,14 +1,14 @@
 const ProSmasher = require('./prosmasher.model');
 
 const prosmasher = (parent, args) => {
-  ProSmasher.findOne({ where: { id: args.id }})
+  return ProSmasher.findOne({ where: { id: args.id }})
     .then(pro => {
       return pro;
     })
 }
 
 const prosmashers = () => {
-  ProSmasher.findAll()
+  return ProSmasher.findAll()
     .then(pros => {
       return pros;
     })

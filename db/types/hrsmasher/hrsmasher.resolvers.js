@@ -1,14 +1,14 @@
 const HRSmasher = require('./hrsmasher.model')
 
 const hrsmasher = (parent, args) => {
-  HRSmasher.findOne({ where: { id: args.id }})
+  return HRSmasher.findOne({ where: { id: args.id }})
     .then(hr => {
       return hr;
     })
 }
 
 const hrsmashers = () => {
-  HRSmasher.findAll()
+  return HRSmasher.findAll()
     .then(hrs => {
       return hrs;
     })

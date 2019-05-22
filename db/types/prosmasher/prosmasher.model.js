@@ -12,4 +12,4 @@ const ProSmasher = sequelize.define('prosmasher', {
   timestamps: false,
 });
 
-module.exports = { ProSmasher };
+module.exports = ProSmasher;

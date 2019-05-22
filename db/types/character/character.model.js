@@ -15,4 +15,4 @@ const Character = sequelize.define('character', {
   timestamps: false,
 });
 
-module.exports = { Character };
+module.exports = Character;
