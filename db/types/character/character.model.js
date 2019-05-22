@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../index');
+const sequelize = require('../../index');
 
 const Character = sequelize.define('character', {
   id: { type: Sequelize.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
@@ -15,4 +15,4 @@ const Character = sequelize.define('character', {
   timestamps: false,
 });
 
-module.exports = { Character };
+module.exports = Character;

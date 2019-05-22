@@ -1,25 +1,34 @@
-import Character from './character.model'
+const Character = require('./character.model')
 
-const character = (_, args) => {
-  Character.findOne({ where: { id: args.id }})
+const character = (parent, args) => {
+  return Character.findOne({ where: { id: args.id }})
     .then(char => {
-      return char;
+      return char.dataValues;
     })
 }
 
 const characters = () => {
-  Character.findAll()
+  return Character.findAll()
     .then(chars => {
       return chars;
     })
 }
 
-export default {
+const newchar = (parent, args) => {
+  return Character.create({ ...args.input })
+}
+
+module.exports = {
   Query: {
     characters,
     character
   },
-  // Mutation: {
-  //   newComment,
-  // }
+  Mutation: {
+    newchar,
+  },
+  Character: {
+    __resolveType(character) {
+      return character;
+    },
+  }
 }

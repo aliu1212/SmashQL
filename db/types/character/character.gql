@@ -9,13 +9,21 @@ type Character {
   leffen_rank: String!
 }
 
-extend type Query {
+input NewCharInput {
+  name: String!
+  weight: Int
+  pic_url: String
+  big_url: String
+  zero_rank: String
+  esam_rank: String
+  leffen_rank: String
+}
+
+type Query {
   characters: [Character!]!
   character(id: ID!): Character!
 }
 
-extend type Mutation {
-  # newProduct(input: NewProductInput!): Product!
-  # updateProduct(id: ID!, input: UpdateProductInput!): Product!
-  # removeProduct(id: ID!): Product!
+type Mutation {
+  newchar(input: NewCharInput!): Character!
 }
