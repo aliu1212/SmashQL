@@ -1,4 +1,7 @@
-const { ApolloServer } = require('apollo-server');
+const express = require('express');
+const path = require('path');
+const cors = require('cors')
+const { ApolloServer } = require('apollo-server-express');
 const { schemaLoader } = require('./util.js');
 const character = require('../db/types/character/character.resolvers')
 const hrsmasher = require('../db/types/hrsmasher/hrsmasher.resolvers')
@@ -26,9 +29,16 @@ module.exports = {
       typeDefs: [rootSchema, ...schemaTypes],
       resolvers: merge({}, character, hrsmasher, prosmasher),
     })
+
+    const app = express();
+    const PORT = 1025;
+    app.use(express.static(path.join(__dirname + '/../client/dist/')))
+    app.use(cors());
     
-    server.listen({ port: 1025 }).then(({ url }) => {
-      console.log(`🚀  Server ready at ${url}`)
-    });
+    server.applyMiddleware({ app, path: '/' });
+    
+    app.listen(PORT, () => {
+      console.log(`🚀  Server ready at ${PORT}`)
+    })
   }
 } 
