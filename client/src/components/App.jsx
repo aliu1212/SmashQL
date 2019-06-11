@@ -1,5 +1,8 @@
 import React from 'react';
 import Heading from './Heading.jsx'
+import CharPicker from './CharPicker.jsx'
+import CharDisplay from './CharDisplay.jsx'
+import Footer from './Footer.jsx'
 import { gql } from 'apollo-boost';
 
 class App extends React.Component {
@@ -9,6 +12,7 @@ class App extends React.Component {
       GET_CHARS : gql`
         query {
           characters {
+            id
             name
             weight
             pic_url
@@ -19,7 +23,8 @@ class App extends React.Component {
           }
         }
       `,
-      allCharacters: []
+      allCharacters: [],
+      currChar: null,
     };
   }
 
@@ -33,7 +38,7 @@ class App extends React.Component {
           allCharacters: result.data.characters
         })
       })
-      .then(a => console.log(this.state.allCharacters))
+      // .then(a => console.log(this.state.allCharacters))
       .catch(err => console.error(err))
   }
   
@@ -42,6 +47,9 @@ class App extends React.Component {
     return (
       <div className='main-page'>
         <Heading />
+        <CharPicker allCharacters={this.state.allCharacters} />
+        <CharDisplay currChar={this.state.currChar} />
+        <Footer />
       </div>
     );
   }

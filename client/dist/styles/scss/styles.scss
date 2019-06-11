@@ -1,13 +1,53 @@
+@font-face {
+  font-family: 'Yellowtail';
+  src: url(https://fonts.googleapis.com/css?family=Yellowtail&display=swap) format('embedded-opentype');
+}
+@font-face{
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css?family=Montserrat:300i,400&display=swap') format('embedded-opentype');
+}
 .main-page {
   width: 100%;
+  display: grid;
+  grid-row-gap: 10px;
 }
-
 .main-page__heading {
   width: 100%;
-  position: absolute; 
-  top: 0px; 
+  grid-row-start: 1;
+  grid-row-end: 2; 
 }
-
 .heading-title {
+  font-family: 'Yellowtail', cursive;
+  font-size: 300%;
   text-align: center;
+  margin: 0px;
+}
+.main-page__charpicker {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.charpicker-minichar {
+  padding-right: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+}
+.main-page__chardisplay {
+  text-align: center;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-family: 'Montserrat', sans-serif;
+}
+.main-page__footer {
+  text-align: center;
+  font-size: 80%;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
